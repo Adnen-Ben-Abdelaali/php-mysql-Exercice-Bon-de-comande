@@ -3,30 +3,42 @@
   <head>
     <meta charset="UTF-8">
     <title>orderForm</title>
+    <link type="text/css" rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <h1><h1>
+    
     <section>
-      <table> 
-          <thead>
-              <tr>
-                  <th colspan="1">Produit"</th>
-                  <th colspan="1">Prix unitaire</th>
-                  <th colspan="1">Quantité</th>
-                  <th colspan="1">Prix Total</th>
-              </tr>
-          </thead>
-          <tbody>
-              <?php foreach($employees as $key => $value): ?>
+      <header>
+      <h1>Bonds de commande<h1>
+      <a href="index.php">Retourner à l'acceuil</a>
+      </header>
+      <article>
+
+      </article>
+
+      <article>
+        <table> 
+            <thead>
                 <tr>
-                    <td><?= $value['firstName'] ?></td>
-                    <td><?= $value['lastName'] ?></td>
-                    <td><?= $value['jobTitle']?></td>
-                    <td><?= $value['city'] ?></td>
-              </tr>
-              <?php  endforeach;  ?>
-          </tbody>
-      </table>
+                    <th colspan="1">Produit</th>
+                    <th colspan="1">Prix unitaire</th>
+                    <th colspan="1">Quantité</th>
+                    <th colspan="1">Prix Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($orderDet as $key => $value): ?>
+                  <tr>
+                      <td><?= $value['productName'] ?></td>
+                      <td><?= $value['priceEach'] ?></td>
+                      <td><?= $value['quantityOrdered'] ?></td>
+                      <td><?= $value['totalPrice']?></td>
+                      
+                </tr>
+                <?php  endforeach;  ?>
+            </tbody>
+        </table>
+      </article>
     </section>
   </body>
 </htmL>

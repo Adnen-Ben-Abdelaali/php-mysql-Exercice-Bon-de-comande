@@ -6,7 +6,7 @@
     <link type="text/css" rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-   <h1>bONDS DE COMMANDE</h1>
+   <h1>Bond de commande</h1>
     <section>
       <table>
         <thead>
@@ -18,20 +18,14 @@
           </tr>
         </thead>
         <tbody>
-          <?php ?>
+          <?php foreach($orders as $key => $value): ?>
           <tr>
-              <td colspan="1">numéro de comande 1</td>
-              <td colspan="1">date de la commande 1</td>
-              <td colspan="1">date de la livraison 1</td>
-              <td colspan="1">Shipped</td>
-            </tr>
-            <tr>
-              <td colspan="1">numéro de comand 2</td>
-              <td colspan="1">date de la command 2</td>
-              <td colspan="1">date de la livraison 2</td>
-              <td colspan="1">not shipped YET</td>
-            </tr>
-          <?php ?>
+              <td colspan="1"><a href="orderForm.php?orderNumber=<?= $value["orderNumber"] ?>"><?= $value["orderNumber"] ?></a></td>
+              <td colspan="1"><?= $value["orderDate"] ?></td>
+              <td colspan="1"><?= $value["shippedDate"] ?></td>
+              <td colspan="1"><?= $value["status"] ?></td>
+            </tr>       
+          <?php endforeach; ?>
         </tbody>
       </table>
     </section>

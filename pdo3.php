@@ -12,18 +12,18 @@ $pdo = new PDO('mysql:host=127.0.0.1;dbname=classicmodels', 'root', '');
 *****************************************************/
 
 //Une requête préparée contient des paramètres
-$query = $pdo->prepare('SELECT * FROM employees 
-	WHERE jobTitle = :fonction');
+$query = $pdo->prepare('SELECT * FROM orders ');
 
 //On exécute la requête en lui passant un tableau associatif représentant l'ensemble des paramètres 
+
 $query->execute([
-	'fonction' => 'Sales Rep'
+/*	'fonction' => 'Sales Rep'   */
 ]);
 
-$employees = $query->fetchAll();
+$orders = $query->fetchAll();
 
 echo "<pre>";
-var_dump($employees);
+var_dump($orders);
 echo "</pre>";
 
-//include 'pdo.phtml';
+include 'orderForm.phtml';

@@ -25,8 +25,9 @@ if ($q === false) {
 //On peut placer placer plusieurs options à fetchAll: PDO::FETCH_ASSOC, PDO::FETCH_NUM, PDO::FETCH_BOTH (option par défaut), ...
 $orders = $q->fetchAll(PDO::FETCH_ASSOC); 
  
+/*
 echo '<pre>';
 print_r($orders);
 echo '</pre>';
-
+*/
 include 'index.phtml';

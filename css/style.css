@@ -1,0 +1,20 @@
+h1 {
+  color: red;
+  text-align: center;
+}
+
+section {
+  background-color: #e6ffcc;
+}
+
+tr th {
+  background-color: pink;
+}
+
+tr:nth-child(odd) {
+  background-color: red;
+}
+
+tr:nth-child(even) {
+  background-color: blue;
+}

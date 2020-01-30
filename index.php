@@ -12,7 +12,7 @@ $pdo = new PDO('mysql:host=127.0.0.1;dbname=classicmodels',
 *	Exécution d'un requête: méthode query()
 *****************************************************/
 
-$q = $pdo->query('SELECT lastName,firstName,jobTitle,city  FROM employees INNER JOIN offices ON employees.officeCode = offices.officeCode');
+$q = $pdo->query('SELECT orderNumber, orderDate, shippedDate, status FROM orders  ');
 
 if ($q === false) {
 	//Pour connaître l'erreur, on utilise la méthode errorInfo()
@@ -23,10 +23,10 @@ if ($q === false) {
 }
 
 //On peut placer placer plusieurs options à fetchAll: PDO::FETCH_ASSOC, PDO::FETCH_NUM, PDO::FETCH_BOTH (option par défaut), ...
-$employees = $q->fetchAll(PDO::FETCH_ASSOC); 
- /*
+$orders = $q->fetchAll(PDO::FETCH_ASSOC); 
+ 
 echo '<pre>';
-print_r($employees);
+print_r($orders);
 echo '</pre>';
-*/
-include 'pdo.phtml';
+
+include 'index.phtml';

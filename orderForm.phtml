@@ -13,9 +13,10 @@
       <a href="index.php">Retourner à l'acceuil</a>
       </header>
       <article>
-
+        <?php foreach($customer as $key => $value): ?>
+         <p><?= $value?></p>  
+        <?php endforeach; ?>
       </article>
-
       <article>
         <table> 
             <thead>

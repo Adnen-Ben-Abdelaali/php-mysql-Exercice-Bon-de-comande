@@ -23,18 +23,25 @@ $queryOrderInforamtion->execute([
 
 $orderDet = $queryOrderInforamtion->fetchAll();
 
-
+/*
 echo '<pre>';
-/*print_r($nouveauTab); */
+print_r($nouveauTab); 
 print_r($orderDet);
 echo '</pre>';
+*/
 
-$queryClientInformation = $pdo->prepare('SELECT customerName, contactFirstName, contactLastName, addressLine1, city');
+$queryClientInformation = $pdo->prepare('SELECT customers.customerName, customers.contactFirstName,
+ customers.contactLastName, customers.addressLine1, customers.city
+ FROM customers INNER JOIN orders ON customers.customerNumber = orders.customerNumber WHERE orders.orderNumber =:fonction');
 
+$queryClientInformation->execute([
+	'fonction' => $_GET['orderNumber']
+]);
 
+$customer = $queryClientInformation->fetch(PDO::FETCH_ASSOC);
 
-
-
-
+echo '<pre>';
+print_r($customer);
+echo '</pre>';
 
 include 'orderForm.phtml';
